@@ -5840,6 +5840,10 @@ function getPossibilitiesRunner() {
         if (final_word.indexOf(black_letters[j]) > -1) {
           continue;
         }
+        // if the letter is in yellow letters continue
+        if (black_letters[j] in yellow_letters) {
+          continue;
+        }
         if (word.includes(black_letters[j])) {
             black_letter_in_word = true;
             break;
