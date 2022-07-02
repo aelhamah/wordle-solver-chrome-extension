@@ -117,6 +117,13 @@ async function runner() {
   let response = await fetch("knownwords.json");
   let knownWords = await response.json();
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  
+  if (!tab.url.includes('nytimes.com/games/wordle/')) {
+    // if the tab is not on wordle, do nothing and display link to the game
+    document.getElementById("possibilities").innerHTML = "<p>Please go to <a href='https://www.nytimes.com/games/wordle/index.html' target='_blank'>nytimes.com/games/wordle</a> to use this extension.</p>";
+    return;
+  }
+
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: getPossibilitiesRunner,
