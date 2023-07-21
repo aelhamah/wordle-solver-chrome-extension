@@ -1,9 +1,10 @@
 
 function getPossibilitiesRunner(knownWords) {
   // get all of game-rows
-  let gameRows = document.getElementsByClassName("Row-module_row__dEHfN");
+  // let gameRows = document.getElementsByClassName("Row-module_row__dEHfN");
   // query select the divs
-  // let gameRows = app.querySelectorAll("game-row")
+  let gameRows = document.querySelectorAll('[class^="Row-module_row"]')
+  console.log(gameRows)
 
   final_word = [undefined, undefined, undefined, undefined, undefined];
   // key is the letter, value is the list of indices where it doesn't belong
@@ -13,7 +14,7 @@ function getPossibilitiesRunner(knownWords) {
   for (let i = 0; i < gameRows.length; i++) {
     let gameRow = gameRows[i];
     // get the game-tiles
-    let gameTiles = gameRow.getElementsByClassName("Tile-module_tile__3ayIZ");
+    let gameTiles = gameRow.querySelectorAll("[class^=Tile-module_tile]");
     for (let j = 0; j < gameTiles.length; j++) {
       let gameTile = gameTiles[j];
       let letter = gameTile.innerText.toLowerCase();
