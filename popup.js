@@ -1,10 +1,8 @@
 
 function getPossibilitiesRunner(knownWords) {
   // get all of game-rows
-  // let gameRows = document.getElementsByClassName("Row-module_row__dEHfN");
   // query select the divs
   let gameRows = document.querySelectorAll('[class^="Row-module_row"]')
-  console.log(gameRows)
 
   final_word = [undefined, undefined, undefined, undefined, undefined];
   // key is the letter, value is the list of indices where it doesn't belong
